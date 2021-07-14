@@ -16,8 +16,6 @@ const SearchEmoji = () => {
     return false;
   }).slice(0);
 
-  console.log("filter", filtered);
-
   return (
     <S.ContainerEmojiSearch>
       <S.InputEmoji
