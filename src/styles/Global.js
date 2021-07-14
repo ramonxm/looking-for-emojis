@@ -13,7 +13,9 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
   }
 
-
+  body {
+    background: url("/assets/images/background-emoji.jpg") ;
+  }
 
 `;
 
