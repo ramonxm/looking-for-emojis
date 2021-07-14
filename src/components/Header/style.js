@@ -12,7 +12,7 @@ const ContainerHeader = styled.header`
 `;
 
 const TitleHeader = styled.h1`
-  font-size: 24px;
+  font-size: 36px;
   color: #e2e2e2;
 `;
 
