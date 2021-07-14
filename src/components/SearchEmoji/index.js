@@ -31,7 +31,7 @@ const SearchEmoji = () => {
               <EmojiList
                 key={keywords}
                 src={`https://cdn.jsdelivr.net/emojione/assets/png/${emoji}.png`}
-                alt={symbol}
+                alt={keywords}
               >
                 {title}
               </EmojiList>
@@ -43,7 +43,7 @@ const SearchEmoji = () => {
               <EmojiList
                 key={keywords}
                 src={`https://cdn.jsdelivr.net/emojione/assets/png/${emoji}.png`}
-                alt={symbol}
+                alt={keywords}
               >
                 {title}
               </EmojiList>
