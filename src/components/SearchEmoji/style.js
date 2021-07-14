@@ -8,7 +8,6 @@ const ContainerEmojiSearch = styled.main`
 
   max-width: 900px;
   height: 100%;
-
   background: #202020;
   margin: 0 auto;
   margin-top: 40px;

@@ -6,6 +6,18 @@ import { EmojiList } from "../EmojiList";
 const SearchEmoji = () => {
   const [listEmoji, setListEmoji] = useState("");
 
+  const filtered = EmojiData.filter(({ title, keywords }) => {
+    if (title.toLowerCase().includes(listEmoji.toLowerCase())) {
+      return true;
+    }
+    if (keywords.includes(listEmoji)) {
+      return true;
+    }
+    return false;
+  }).slice(0);
+
+  console.log("filter", filtered);
+
   return (
     <S.ContainerEmojiSearch>
       <S.InputEmoji
@@ -14,18 +26,31 @@ const SearchEmoji = () => {
         onChange={(e) => setListEmoji(e.target.value)}
         value={listEmoji}
       />
-      {EmojiData.map(({ title, symbol, keywords }) => {
-        const emoji = symbol.codePointAt(0).toString(16);
-        return (
-          <EmojiList
-            key={keywords}
-            src={`https://cdn.jsdelivr.net/emojione/assets/png/${emoji}.png`}
-            alt={symbol}
-          >
-            {title}
-          </EmojiList>
-        );
-      })}
+      {listEmoji.length > 0
+        ? filtered.map(({ title, symbol, keywords }) => {
+            const emoji = symbol.codePointAt(0).toString(16);
+            return (
+              <EmojiList
+                key={keywords}
+                src={`https://cdn.jsdelivr.net/emojione/assets/png/${emoji}.png`}
+                alt={symbol}
+              >
+                {title}
+              </EmojiList>
+            );
+          })
+        : EmojiData.map(({ title, symbol, keywords }) => {
+            const emoji = symbol.codePointAt(0).toString(16);
+            return (
+              <EmojiList
+                key={keywords}
+                src={`https://cdn.jsdelivr.net/emojione/assets/png/${emoji}.png`}
+                alt={symbol}
+              >
+                {title}
+              </EmojiList>
+            );
+          })}
     </S.ContainerEmojiSearch>
   );
 };
