@@ -1,4 +1,4 @@
-export const arrayEmoji = [
+export const EmojiData = [
   {
     title: "100",
     symbol: "💯",
