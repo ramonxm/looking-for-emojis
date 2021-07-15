@@ -16,6 +16,10 @@ const SearchEmoji = () => {
     return false;
   }).slice(0);
 
+  const copyEmojiToClipboard = (key) => {
+    navigator.clipboard.writeText(key);
+  };
+
   return (
     <S.ContainerEmojiSearch>
       <S.InputEmoji
@@ -32,6 +36,7 @@ const SearchEmoji = () => {
                 key={keywords}
                 src={`https://cdn.jsdelivr.net/emojione/assets/png/${emoji}.png`}
                 alt={keywords}
+                onClick={() => copyEmojiToClipboard(symbol)}
               >
                 {title}
               </EmojiList>
@@ -44,6 +49,7 @@ const SearchEmoji = () => {
                 key={keywords}
                 src={`https://cdn.jsdelivr.net/emojione/assets/png/${emoji}.png`}
                 alt={keywords}
+                onClick={() => copyEmojiToClipboard(symbol)}
               >
                 {title}
               </EmojiList>
