@@ -14,7 +14,7 @@ const SearchEmoji = () => {
       return true;
     }
     return false;
-  }).slice(0);
+  }).slice(0, 10);
 
   const copyEmojiToClipboard = (key) => {
     navigator.clipboard.writeText(key);
@@ -28,33 +28,19 @@ const SearchEmoji = () => {
         onChange={(e) => setListEmoji(e.target.value)}
         value={listEmoji}
       />
-      {listEmoji.length > 0
-        ? filtered.map(({ title, symbol, keywords }) => {
-            const emoji = symbol.codePointAt(0).toString(16);
-            return (
-              <EmojiList
-                key={keywords}
-                src={`https://cdn.jsdelivr.net/emojione/assets/png/${emoji}.png`}
-                alt={keywords}
-                onClick={() => copyEmojiToClipboard(symbol)}
-              >
-                {title}
-              </EmojiList>
-            );
-          })
-        : EmojiData.map(({ title, symbol, keywords }) => {
-            const emoji = symbol.codePointAt(0).toString(16);
-            return (
-              <EmojiList
-                key={keywords}
-                src={`https://cdn.jsdelivr.net/emojione/assets/png/${emoji}.png`}
-                alt={keywords}
-                onClick={() => copyEmojiToClipboard(symbol)}
-              >
-                {title}
-              </EmojiList>
-            );
-          })}
+      {filtered.map(({ title, symbol, keywords }) => {
+        const emoji = symbol.codePointAt(0).toString(16);
+        return (
+          <EmojiList
+            key={keywords}
+            src={`https://cdn.jsdelivr.net/emojione/assets/png/${emoji}.png`}
+            alt={keywords}
+            onClick={() => copyEmojiToClipboard(symbol)}
+          >
+            {title}
+          </EmojiList>
+        );
+      })}
     </S.ContainerEmojiSearch>
   );
 };
